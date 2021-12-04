@@ -1,8 +1,5 @@
 filename = "input.txt"
 
-def add(x, y):
-    return int(x) + int(y)
-
 def dec_to_binary(l):
     return sum(int(digit) * (2 ** i) for i, digit in enumerate(l[::-1]))
 
