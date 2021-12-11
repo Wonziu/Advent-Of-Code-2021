@@ -33,7 +33,7 @@ def get_perms(elements):
                 yield perm[:i] + elements[0:1] + perm[i:]
 
 def second(inputs, outputs):
-    bits = [1, 2, 4, 8, 16, 32, 64]
+    bits = [64, 32, 16, 8, 4, 2, 1]
     sum = 0
 
     for input, output in zip(inputs, outputs):
