@@ -1,7 +1,7 @@
 ## Day 9
 Cool way to check neighbours of 2d array with checking edge cases.
 
-```python=
+```python
 for y in range(rows):
         for x in range(columns):
             if all(dx + x < 0 
