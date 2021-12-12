@@ -1,5 +1,5 @@
 ## Day 9
-Cool way to check neighbours of 2d array with checking edge cases.
+Cool way for checking neighbours of 2d array with borders.
 
 ```python
 for y in range(rows):
