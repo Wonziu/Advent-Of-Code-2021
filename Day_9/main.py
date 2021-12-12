@@ -2,8 +2,7 @@ from functools import reduce
 
 filename = "input.txt"
 
-
-def first(data):
+def solve(data):
     rows = len(data)
     columns = len(data[0])    
     lows = counter = 0
@@ -34,4 +33,4 @@ def first(data):
 if __name__ == '__main__':
     with open(filename) as file:
         data = [list(map(int, list(line.rstrip()))) for line in file]
-        print(first(data)) 
+        print(solve(data))

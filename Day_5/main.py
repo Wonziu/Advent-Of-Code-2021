@@ -32,4 +32,3 @@ if __name__ == '__main__':
         data = [list(map(int, entry.replace('->', '').replace(',', ' ').split())) for entry in data]
         print(first(data))
         print(first(data, True))
-        

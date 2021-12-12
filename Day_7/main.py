@@ -21,4 +21,3 @@ if __name__ == '__main__':
         data = list(map(int, file.read().rstrip().split(',')))
         print(first(data))
         print(second(data))
-        
