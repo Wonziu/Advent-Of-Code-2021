@@ -1,7 +1,7 @@
 #! /bin/bash
 path="$PWD/Day_$1"
 
-template="filename = \"$path\"
+template="filename = \"$path/input.txt\"
 
 if __name__ == '__main__':
     with open(filename) as file:"
