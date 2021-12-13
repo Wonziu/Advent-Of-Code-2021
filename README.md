@@ -1,5 +1,5 @@
 ## Day 9
-Cool way for checking neighbours of 2d array with borders.
+Cool way of checking neighbours of 2d array with borders.
 
 ```python
 for y in range(rows):
