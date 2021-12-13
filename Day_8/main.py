@@ -1,4 +1,4 @@
-filename = "input.txt"
+filename = "/home/wonziu/Documents/adventofcode/Day_8/input.txt"
 
 def get_number(mask):
     if mask == 119: 

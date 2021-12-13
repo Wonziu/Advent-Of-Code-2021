@@ -1,4 +1,4 @@
-filename = "input.txt"
+filename = "/home/wonziu/Documents/adventofcode/Day_3/input.txt"
 
 def dec_to_binary(l):
     return sum(int(digit) * (2 ** i) for i, digit in enumerate(l[::-1]))

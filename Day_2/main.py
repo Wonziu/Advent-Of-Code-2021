@@ -1,4 +1,4 @@
-filename = "input.txt"
+filename = "/home/wonziu/Documents/adventofcode/Day_2/input.txt"
 
 def first(data):
     depth = horizontal = 0

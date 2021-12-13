@@ -1,5 +1,4 @@
-filename = "input.txt"
-# def first(data):
+filename = "/home/wonziu/Documents/adventofcode/Day_4/input.txt"
 
 def check_row(bingo):
     return any(sum(row) == -5 for row in bingo)

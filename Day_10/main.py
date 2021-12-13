@@ -1,6 +1,6 @@
 from functools import reduce
 
-filename = "input.txt"
+filename = "/home/wonziu/Documents/adventofcode/Day_10/input.txt"
 
 def solve(data):
     points_first = 0

@@ -1,6 +1,6 @@
 from functools import reduce
 
-filename = "input.txt"
+filename = "/home/wonziu/Documents/adventofcode/Day_9/input.txt"
 
 def solve(data):
     rows = len(data)

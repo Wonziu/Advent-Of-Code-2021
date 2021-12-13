@@ -1,4 +1,4 @@
-import os, runpy, time
+import os, runpy, time, sys
 from prettytable import PrettyTable
 from aocd import models
 
@@ -7,11 +7,16 @@ table = PrettyTable(['Folder', 'Day', 'Title', 'Solved', 'Time[μs]'])
 folders = [filename for filename in os.listdir() if os.path.isdir(os.path.join(filename)) if filename[0] != "."]
 folders = sorted(folders, key=lambda name: int(name[4:]))
 
+saved_stdout = sys.stdout
+sys.stdout = open("/dev/zero", "w")
+
 times = [time.perf_counter()]
 
 for folder in folders:
-    runpy.run_path(f"{folder}/main.py")
+    runpy.run_path(f"{folder}/main.py", run_name="__main__")
     times.append(time.perf_counter())
+
+sys.stdout = saved_stdout
     
 for i, folder in enumerate(folders):    
     stat_info = os.stat(folder)

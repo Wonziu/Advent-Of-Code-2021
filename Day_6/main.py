@@ -1,4 +1,4 @@
-filename = "input.txt"
+filename = "/home/wonziu/Documents/adventofcode/Day_6/input.txt"
 
 def first(data):
     fish = [0, 0, 0, 0, 0, 0, 0, 0, 0]

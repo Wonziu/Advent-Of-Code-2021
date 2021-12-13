@@ -1,4 +1,4 @@
-filename = "input.txt"
+filename = "/home/wonziu/Documents/adventofcode/Day_5/input.txt"
 
 def first(data, diagonals=False):
     max_x = max_y = 0    

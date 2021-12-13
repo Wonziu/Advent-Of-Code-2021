@@ -1,4 +1,4 @@
-filename = "input.txt"
+filename = "/home/wonziu/Documents/adventofcode/Day_1/input.txt"
 
 def first(lines):
     return sum(1 for i in range(len(lines)) if lines[i] > lines[i - 1])
