@@ -8,11 +8,15 @@ def dijkstra(board, depth):
     width = len(board[0])
     
     queue = [(0, (0, 0))]
-    dist = {(0, 0): 0}
+    dist = [[float('inf') for x in range(width * depth)] for y in range(height * depth)]
+    dist[0][0] = 0
 
     while queue:
         _, node = heapq.heappop(queue)
-        distance = dist[(node[0], node[1])]
+        distance = dist[node[0]][node[1]]
+        
+        if node == (height * depth - 1, width * depth - 1):
+            break
 
         for dir in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
             x, y = node
@@ -24,11 +28,11 @@ def dijkstra(board, depth):
                 neigh_distance = distance + (board[new_x % width][new_y % height] + 
                     new_x // width + new_y // height - 1) % 9 + 1
 
-                if neigh_distance < dist.get((new_x, new_y), float('inf')):
-                    dist[(new_x, new_y)] = neigh_distance
+                if neigh_distance < dist[new_x][new_y]:
+                    dist[new_x][new_y] = neigh_distance
                     heapq.heappush(queue, (neigh_distance, (new_x, new_y)))
 
-    return dist[(height * depth - 1, width * depth - 1)]
+    return dist[height * depth - 1][width * depth - 1]
 
 if __name__ == '__main__':
     with open(filename) as file:
