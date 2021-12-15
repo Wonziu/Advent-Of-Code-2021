@@ -24,11 +24,13 @@ def dijkstra(board, depth):
             new_x = x + dx
             new_y = y + dy
 
-            if new_x >= 0 and new_x < width * depth and new_y >= 0 and new_y < height * depth:
-                neigh_distance = distance + (board[new_x % width][new_y % height] + 
-                    new_x // width + new_y // height - 1) % 9 + 1
+            # we are never gonna have relaxation since edges have weight = 0
 
-                if neigh_distance < dist[new_x][new_y]:
+            if new_x >= 0 and new_x < width * depth and new_y >= 0 and new_y < height * depth:
+                if dist[new_x][new_y] == float('inf'):
+                    neigh_distance = distance + (board[new_x % width][new_y % height] + 
+                        new_x // width + new_y // height - 1) % 9 + 1
+
                     dist[new_x][new_y] = neigh_distance
                     heapq.heappush(queue, (neigh_distance, (new_x, new_y)))
 
@@ -39,6 +41,5 @@ if __name__ == '__main__':
         data = file.read().rstrip().split()
         data = [list(map(int, list(line))) for line in data]
         
-        start_time = time.time()
+        print(dijkstra(data, 1))
         print(dijkstra(data, 5))
-        print("--- %s seconds ---" % (time.time() - start_time))
