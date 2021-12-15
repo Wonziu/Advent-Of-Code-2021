@@ -1,5 +1,4 @@
 import heapq
-import time
 
 filename = "/home/wonziu/Documents/adventofcode/Day_15/input.txt"
 
@@ -12,9 +11,7 @@ def dijkstra(board, depth):
     dist[0][0] = 0
 
     while queue:
-        _, node = heapq.heappop(queue)
-        distance = dist[node[0]][node[1]]
-        
+        distance, node = heapq.heappop(queue)        
         if node == (height * depth - 1, width * depth - 1):
             break
 
@@ -25,8 +22,7 @@ def dijkstra(board, depth):
             new_y = y + dy
 
             # we are never gonna have relaxation since edges have weight = 0
-
-            if new_x >= 0 and new_x < width * depth and new_y >= 0 and new_y < height * depth:
+            if width * depth > new_x >= 0 and height * depth > new_y >= 0:
                 if dist[new_x][new_y] == float('inf'):
                     neigh_distance = distance + (board[new_x % width][new_y % height] + 
                         new_x // width + new_y // height - 1) % 9 + 1
