@@ -23,22 +23,23 @@ def eval(ast):
 
     if type_ID == 4:
         return rest
-    
     evaluated = [eval(packet) for packet in rest]
-    if type_ID == 0:
-        return sum(evaluated)
-    if type_ID == 1:
-        return reduce(lambda x, y: x * y, evaluated, 1)
-    if type_ID == 2:
-        return min(evaluated)
-    if type_ID == 3:
-        return max(evaluated)
-    if type_ID == 5:
-        return 1 if evaluated[0] > evaluated[1] else 0
-    if type_ID == 6:
-        return 1 if evaluated[0] < evaluated[1] else 0
-    if type_ID == 7:
-        return 1 if evaluated[0] == evaluated[1] else 0
+    
+    match type_ID:
+        case 0:
+            return sum(evaluated)
+        case 1:
+            return reduce(lambda x, y: x * y, evaluated, 1)
+        case 2:
+            return min(evaluated)
+        case 3:
+            return max(evaluated)
+        case 5:
+            return 1 if evaluated[0] > evaluated[1] else 0
+        case 6:
+            return 1 if evaluated[0] < evaluated[1] else 0
+        case 7:
+            return 1 if evaluated[0] == evaluated[1] else 0
 
 def parse(data):
     version = bin_to_dec(data[:3])
