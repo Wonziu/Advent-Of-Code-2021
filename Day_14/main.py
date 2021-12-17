@@ -15,6 +15,8 @@ filename = "/home/wonziu/Documents/adventofcode/Day_14/input.txt"
 # products: AA -> AAA, AB -> AAB, BA -> BAA, ...
 # I'm using some optimization so that i only need two rows of my dp
 # dp[i][j][k][l] = dp[steps][first letter][second letter][frequency of a letter]
+# dp[i][j][k] = dp[i - 1][j][x] + dp[i - 1][x][k] and we have to substract 1 at the index of x
+# assuming that we have a product jk -> jxk
 
 def solve(template, rules, depth):
     letter_to_num = {}

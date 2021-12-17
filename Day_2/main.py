@@ -4,9 +4,8 @@ def first(data):
     depth = horizontal = 0
     for dir, val in data:
         if dir == 'up':         depth -= val
-        if dir == 'down':       depth += val
-        if dir == 'forward':    horizontal += val
-
+        elif dir == 'down':     depth += val
+        elif dir == 'forward':  horizontal += val
     return (horizontal * depth)
 
 def second(data):

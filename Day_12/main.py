@@ -23,7 +23,8 @@ def second(node, visited, no_duplicates):
             visited.append(node)
 
     neighbours = edges[node]
-    return sum(second(n, [*visited], no_duplicates) for n in neighbours if n != 'start' and (n.isupper() or n not in visited or no_duplicates))
+    return sum(second(n, [*visited], no_duplicates) for n in neighbours 
+        if n != 'start' and (n.isupper() or n not in visited or no_duplicates))
 
 
 if __name__ == '__main__':
