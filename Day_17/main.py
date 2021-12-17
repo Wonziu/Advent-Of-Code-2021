@@ -1,11 +1,11 @@
 import math
-
+import time
 filename = "/home/wonziu/Documents/adventofcode/Day_17/input.txt"
 
 def first(x_interval, y_interval):
     # Because we are always gonna land on point (x, 0) with velocity (_, -y - 1) so for
-    # y = abs(y0 + 1) we're always gonna overshoot
-    greatest_y = abs(y_interval[0] + 1)    
+    # y > abs(y0 + 1) we're always gonna overshoot
+    greatest_y = abs(y_interval[0] + 1)
     # highest is gonna be the value of arithmetic sum of a sequence y_n = y - n + 1 from 1 to y
     highest_y = (greatest_y + 1) * greatest_y // 2
     return highest_y
@@ -24,12 +24,13 @@ def second(x_interval, y_interval):
             continue
 
         # numbers in between are included
-        lower_bound = [math.ceil(((2 * y + 1) - math.sqrt(discriminant_lower)) / 2), math.floor(((2 * y + 1) + math.sqrt(discriminant_lower)) / 2)]
-
+        lower_bound = [math.ceil(((2 * y + 1) - math.sqrt(discriminant_lower)) / 2),
+                       math.floor(((2 * y + 1) + math.sqrt(discriminant_lower)) / 2)]
 
         if discriminant_upper != 0:
             # numbers in between are excluded
-            upper_bound = [math.floor(((2 * y + 1) - math.sqrt(discriminant_upper)) / 2), math.ceil(((2 * y + 1) + math.sqrt(discriminant_upper)) / 2)]
+            upper_bound = [math.floor(((2 * y + 1) - math.sqrt(discriminant_upper)) / 2),
+                           math.ceil(((2 * y + 1) + math.sqrt(discriminant_upper)) / 2)]
         else:
             # case when our parabola is above the x-axis. Almost impossible
             upper_bound = [-1000, 1000]
@@ -43,7 +44,6 @@ def second(x_interval, y_interval):
             left_interval = [max(0, lower_bound[0]), upper_bound[0]]
             ys.append((y, left_interval))
 
-
     greatest_x = x_interval[1]
     # for smallest_x we have to find smallest n that the sum of an arithmetic sequence x = x - n + 1 is >= x0
     smallest_x = 0
@@ -56,7 +56,7 @@ def second(x_interval, y_interval):
         for x in range(smallest_x, greatest_x + 1):
             for step in range(a, b + 1):
                 x_pos = 0
-                
+
                 if step >= x:
                     x_pos = (x + 1) * x / 2
                 else:
